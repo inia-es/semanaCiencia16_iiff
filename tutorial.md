@@ -245,3 +245,21 @@ var tangle = new Tangle(document, {
    update:     function () { this.longitudLlama = calcularLongitud(this.velocidad); }
  });
   ```
+
+# Matemáticas en Javascript
+
+Vamos a crear una función en Javascript para la fórmula de Byram. Es más fácil de lo que parece:
+```js
+function formulaByram(biomasa, velocidad) {
+  // biomasa: kg/m^2
+  // velocidad: m/min
+  return 0.37 * Math.pow((15000 * biomasa * velocidad)/60, 0.46);
+}
+```
+Ahora usaremos esta fórmula en nuestra función `calcularLongitud()`
+```js
+var calcularLongitud = function(velocidad) {
+  var biomasa_pasto = 0.8;
+  return formulaByram(biomasa_pasto, velocidad);
+};
+```
