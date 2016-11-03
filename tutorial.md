@@ -191,7 +191,7 @@ En primer lugar creamos una sencilla web con las fórmulas, los datos y un ejemp
 </html>
 ```
 
-Hemos introducido un par de etiquetas nuevas, como <table> para construir la tabla de datos, o <em> para dar enfásis. Además hemos creado añadido las ecuaciones en forma de gráficos GIF (usando la herramienta online https://www.codecogs.com/latex/eqneditor.php).
+Hemos introducido un par de etiquetas nuevas, como <table> para construir la tabla de datos, o `<em>` para dar enfásis. Además hemos creado añadido las ecuaciones en forma de gráficos GIF (usando la herramienta online https://www.codecogs.com/latex/eqneditor.php).
 
 Para añadir las imágenes podéis descargarlas del sitio web (https://github.com/inia-es/semanaCiencia16_iiff_src/tree/master/img). Este sitio web tiene todo el código de este ejemplo, pero si lo descargáis ahora arruinareis parte de la diversión.
 
