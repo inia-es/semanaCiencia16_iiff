@@ -275,6 +275,36 @@ En segundo lugar vamos a dar formato a la salida, para poder ignorar los decimal
 <span data-format="%.2f" data-var="longitud"> m</span>
 ```
 
+También vamos a mejorar el aspecto del sitio con Bootsrap (getbootstrap.com). Bootstrap es un framework CSS muy sencillo de utilizar para aquellos que no sabemos mucho de CSS, o no tenemos buena coordinación estética.
+
+Guardamos los ficheros en la carpeta `css` y luego los añadimos a la sección `head` de nuestro HTML:
+```html
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css" type="text/css">
+```
+Para que Bootstrap dé una mejor estructura a nuestro contenido debemos poner todo el contenido entre las etiquetas:
+```html
+<body>
+  <div class="container">
+    <!-- toda nuestra aplicación -->
+  </div>
+</body>
+```
+
+Para terminar la mejora añadimos la clase `center-block` a las imágenes con las fórmulas:
+```html
+<img alt="" src="img/eqIntensidad.gif" class="center-block"><br/>
+<img alt="" src="img/eqLongitud.gif" class="center-block"><br/>
+<img alt="Fórmula de Byram" src="img/eqByram.gif" class="center-block">
+```
+
+Y algunas etiquetas para mejorar el aspecto de nuestra tabla de datos:
+```html
+<table class="table table-bordered table-striped">
+```
+
+Pocos dan tanto con tan poco esfuero.
+
 # Sofisticando el modelo
 
 Hasta ahora hemos trabajado siempre con el mismo tipo de incendio, uno de pasto. Vamos a introducir ahora los otros tipos de incencios: monte bajo y bosque.
