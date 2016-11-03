@@ -195,3 +195,53 @@ Hemos introducido un par de etiquetas nuevas, como <table> para construir la tab
 
 Para añadir las imágenes podéis descargarlas del sitio web (https://github.com/inia-es/semanaCiencia16_iiff_src/tree/master/img). Este sitio web tiene todo el código de este ejemplo, pero si lo descargáis ahora arruinareis parte de la diversión.
 
+# Haciendo un sitio interactivo
+
+Para esta parte del tutorial vamos a hacer uso de la librería Tangle. Podemos descargar los ficheros en http://worrydream.com/Tangle/download.html, y ponerlo en una carpeta `js` de nuestro proyecto.
+
+Ahora lo añadimos a nuestra web añadiendo:
+```html
+<script src="js/Tangle.js"></script>
+<link rel="stylesheet" href="css/TangleKit.css" type="text/css">
+<script type="text/javascript" src="js/mootools.js"></script>
+<script type="text/javascript" src="js/sprintf.js"></script>
+<script type="text/javascript" src="js/BVTouchable.js"></script>
+<script type="text/javascript" src="js/TangleKit.js"></script>
+```
+a la sección `head` de nuestra página web.
+
+Ahora vamos a identificar la velocidad de propagación como un parámetro de entrada. Para ello vamos a modificar el texto `<em>10</em> m/min` por el siguiente código.
+```html
+<span var-data="velocidad" class="TKAdjustableNumber"> m/min</span>
+```
+
+Y en la sección `<script>` incializamos dicha variable:
+```js
+var tangle = new Tangle(document, {
+  initialize: function () { this.velocidad = 10; },
+  update:     function () { }
+});
+ ```
+
+ # Generando valores de salida
+
+ Ahora vamos a hacer que el valor de longitud de la llama varie con la velocidad.
+ Primero, identificamos la longitud de la llama como una variable del modelo, sustituimos ```<em>&lt;valor calculado&gt;</em> m``` por algo como:
+ ```html
+ <span data-var="longitudLlama"> m</span>
+ ```
+
+ Añadimos una función que calcule el valor de la llama. Vamos a usar una función de prueba, que nos permite probar el sistema interactivo. En el siguiente bloque usaremos la fórmula de Byram correctamente.
+ ```js
+ var calcularLongitud = function(velocidad) {
+   return velocidad * 13;
+ }
+ ```
+
+ Y usamos esa función para actualizar el valor de `longitudLlama` en el modelo de Tangle:
+ ```js
+ var tangle = new Tangle(document, {
+   initialize: function () { this.velocidad = 10; },
+   update:     function () { this.longitudLlama = calcularLongitud(this.velocidad); }
+ });
+  ```
