@@ -263,3 +263,14 @@ var calcularLongitud = function(velocidad) {
   return formulaByram(biomasa_pasto, velocidad);
 };
 ```
+
+# Mejora estética
+
+Vamos a mejorar un poco el aspecto de nuestro proyecto. En primer vamos a mejorar el aspecto de nuestra interfaz. Añadiremos parámetros a nuestro modelo para que admita decimales en la entrada y podamos darle un rango mínimo y máximo de valores, lo haremos con las etiquetas `data-min`, `data-max` y `data-step`:
+```html
+<span data-min="0" data-max="10" data-step="0.5" data-var="velocidad" class="TKAdjustableNumber"> m/min</span>
+```
+En segundo lugar vamos a dar formato a la salida, para poder ignorar los decimales que no necesitemos. Lo haremos con la etiqueta `data-format`. Esta etiqueta formatea la salida haciendo uso de la descripción de formatos de la librería estándar de C  (`print()`, `sprintf()`, ...). Ver http://www.manpages.info/linux/sprintf.3.html
+```html
+<span data-format="%.2f" data-var="longitud"> m</span>
+```
