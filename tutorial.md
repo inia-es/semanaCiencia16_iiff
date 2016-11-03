@@ -274,3 +274,34 @@ En segundo lugar vamos a dar formato a la salida, para poder ignorar los decimal
 ```html
 <span data-format="%.2f" data-var="longitud"> m</span>
 ```
+
+# Sofisticando el modelo
+
+Hasta ahora hemos trabajado siempre con el mismo tipo de incendio, uno de pasto. Vamos a introducir ahora los otros tipos de incencios: monte bajo y bosque.
+
+Modificaremos `<em>pasto</em>` para que sea una variable de entrada:
+```html
+<span data-var="combustible" data-min="1" data-max="3" class="TKAdjustableNumber TKSwitch">
+  <span>pasto</span>
+  <span>monte bajo</span>
+  <span>bosque</span>
+</span>
+```
+`TKAdjustableNumber` funciona como un selector horizontal como el que usamos para la velocidad. `TKSwitch` muestra solo uno de los valores contenidos según el valor que adopte la variable `combustible`.
+
+Ahora añadiremos la información de biomasa a Javascript, para poder usarla en la fórmula. Para ello usaremos un array:
+```js
+var biomasa = [
+  null, // valor nulo para evitar el error por 1
+  0.1, // pastos
+  0.8, // monte bajo
+  3.5, // boque, ojo a la coma
+];
+```
+Ahora solo nos queda introducirlo en la fórmula de Byram:
+```js
+
+  update: function () { this.longitud = formulaByram(biomasa[this.combustible], this.velocidad) },
+```
+
+**¡¡Enhorabuena!!**, habéis construido vuestra primera Explicación Explorable.
