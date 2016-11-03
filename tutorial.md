@@ -135,3 +135,63 @@ console.log('texto de ejemplo');
 ```
 
 Javascript tiene detalles bastante avanzados. Si os habéis fijado, las funciones son objetos que tienen algunas funciones incluídas por defecto, como `call()`. Por ejemplo, podéis hacer también `suma.call(null, 2, 2);`. Estas características hacen que sea un lenguaje realmente muy flexible.
+
+# Una Explicación Explorable
+
+Vamos a crear una sencilla página web, que muestre la fórmula de Byram y permita explorar su evolución con algunos valores para la velocidad de propagación y los materiales del incendio.
+
+En primer lugar creamos una sencilla web con las fórmulas, los datos y un ejemplo de la parte explorable.
+
+```html
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>INIA - Semana de la Ciencia 2016 ::: Explicaciones Explorables</title>
+  </head>
+
+  <body>
+    <h1>Tamaño de la llama en incendios forestales</h1>
+    <p>El tamaño de la llama en un incendio forestal puede ser calculado a partir de la velocidad de propagación, la cantidad de material y sus características según la fórmula:</p>
+
+    <img alt="" src="img/eqIntensidad.gif"><br/>
+    <img alt="" src="img/eqLongitud.gif"><br/>
+    <img alt="Fórmula de Byram" src="img/eqByram.gif">
+
+    <p>Conocemos algunos valores estándares de características de los materiales para distintos tipos
+      de vegetación:
+    </p>
+
+    <table>
+      <tr>
+        <th>Vegetación</th>
+        <th>Densidad (kg/m<sup>2</sup>)</th>
+      </tr>
+      <tr>
+        <td>Pasto</td>
+        <td>0.1</td>
+      </tr>
+      <tr>
+        <td>Monte bajo</td>
+        <td>0.8</td>
+      </tr>
+      <tr>
+        <td>Bosque</td>
+        <td>3.5</td>
+      </tr>
+    </table>
+
+    <p> Nos encontramos ante un incendio de <em>pasto</em> que se mueve a una velocidad de <em>10</em> m/min.
+      El valor de longitud de la llama esperado es <em>&lt;valor calculado&gt;</em>m.
+    </p>
+
+    <script>
+      console.log('Hola, mundo!');
+    </script>
+  </body>
+</html>
+```
+
+Hemos introducido un par de etiquetas nuevas, como <table> para construir la tabla de datos, o <em> para dar enfásis. Además hemos creado añadido las ecuaciones en forma de gráficos GIF (usando la herramienta online https://www.codecogs.com/latex/eqneditor.php).
+
+Para añadir las imágenes podéis descargarlas del sitio web (https://github.com/inia-es/semanaCiencia16_iiff_src/tree/master/img). Este sitio web tiene todo el código de este ejemplo, pero si lo descargáis ahora arruinareis parte de la diversión.
+
