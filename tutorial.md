@@ -171,11 +171,11 @@ En primer lugar creamos una sencilla web con las fórmulas, los datos y un ejemp
         <td>0.1</td>
       </tr>
       <tr>
-        <td>Monte bajo</td>
+        <td>matorral bajo</td>
         <td>0.8</td>
       </tr>
       <tr>
-        <td>Bosque</td>
+        <td>matorral alto</td>
         <td>3.5</td>
       </tr>
     </table>
@@ -307,14 +307,14 @@ Pocos dan tanto con tan poco esfuero.
 
 # Sofisticando el modelo
 
-Hasta ahora hemos trabajado siempre con el mismo tipo de incendio, uno de pasto. Vamos a introducir ahora los otros tipos de incencios: monte bajo y bosque.
+Hasta ahora hemos trabajado siempre con el mismo tipo de incendio, uno de pasto. Vamos a introducir ahora los otros tipos de incencios: matorral bajo y matorral alto.
 
 Modificaremos `<em>pasto</em>` para que sea una variable de entrada:
 ```html
 <span data-var="combustible" data-min="1" data-max="3" class="TKAdjustableNumber TKSwitch">
   <span>pasto</span>
-  <span>monte bajo</span>
-  <span>bosque</span>
+  <span>matorral bajo</span>
+  <span>matorral alto</span>
 </span>
 ```
 `TKAdjustableNumber` funciona como un selector horizontal como el que usamos para la velocidad. `TKSwitch` muestra solo uno de los valores contenidos según el valor que adopte la variable `combustible`.
@@ -324,7 +324,7 @@ Ahora añadiremos la información de biomasa a Javascript, para poder usarla en 
 var biomasa = [
   null, // valor nulo para evitar el error por 1
   0.1, // pastos
-  0.8, // monte bajo
+  0.8, // matorral bajo
   3.5, // boque, ojo a la coma
 ];
 ```
@@ -356,7 +356,7 @@ function valorMasa(texto) {
 var biomasa = [
   null, // valor nulo para evitar el error por 1
   valorMasa(document.getElementById('biomasa_pasto').innerHTML), // pastos
-  valorMasa(document.getElementById('biomasa_monte_bajo').innerHTML), // monte bajo
-  valorMasa(document.getElementById('biomasa_bosque').innerHTML), // bosque
+  valorMasa(document.getElementById('biomasa_matorral_bajo').innerHTML), // matorral bajo
+  valorMasa(document.getElementById('biomasa_matorral alto').innerHTML), // matorral alto
 ];
 ```
