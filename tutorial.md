@@ -272,7 +272,7 @@ Vamos a mejorar un poco el aspecto de nuestro proyecto. En primer vamos a mejora
 ```
 En segundo lugar vamos a dar formato a la salida, para poder ignorar los decimales que no necesitemos. Lo haremos con la etiqueta `data-format`. Esta etiqueta formatea la salida haciendo uso de la descripción de formatos de la librería estándar de C  (`print()`, `sprintf()`, ...). Ver http://www.manpages.info/linux/sprintf.3.html
 ```html
-<span data-format="%.2f" data-var="longitud"> m</span>
+<span data-format="%.2f" data-var="longitudLlama"> m</span>
 ```
 
 También vamos a mejorar el aspecto del sitio con Bootsrap (getbootstrap.com). Bootstrap es un framework CSS muy sencillo de utilizar para aquellos que no sabemos mucho de CSS, o no tenemos buena coordinación estética.
