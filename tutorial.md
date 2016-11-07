@@ -366,3 +366,66 @@ var biomasa = [
   valorMasa(document.getElementById('biomasa_matorral alto').innerHTML), // matorral alto
 ];
 ```
+
+# Explicaciones visualesclas
+
+Ahora vamos a añadir un elemento visual para mejorar la explicación.
+
+Creamos una estructura haciendo uso de la capacidad de Bootstrap, para crear columnas. En cada uno vamos a insertar una imagen que explique el tamaño del incendio:
+```html
+<div class="row">
+  <div class="col-md-4">
+    <img width="100%" src="img/fuego_solo.png">
+  </div>
+  <div class="col-md-4">
+    <img width="100%" src="img>/casa_arbol2.gif">
+  </div>
+  <div class="col-md-4">
+    <h2>Recomendación</h2>
+    <img src="img/aereo.gif">
+  </div>
+</div>
+```
+
+![Aspecto del diagrama visual](img/explicacionVisual.png)
+
+Cambiaremos el tamaño del incendio en función de la longitud calculada de la llama.
+
+Vamos a añadir un identificador a la imagen que queremos modificar:
+```html
+<img width="100%" id="fuego" src="img/fuego_solo.png">
+```
+
+Para poder modificar su tamaño, creamos una referencia a este elemento en el código Javascript.
+
+```js
+var fuego = document.getElementById('fuego');
+```
+
+Calcularemos el tamaño del gráfico de la llama de manera proporcional al valor de longitud de la llama.
+```js
+  alturaGraficoLlama = longitudLlama / longituMaximoLlama * alturaMaximaGraficoLlama;
+```
+
+La longitud máxima de la llama en nuestro ejemplo es 24.07m. Como en cada navegador el tamaño del gráfico va a ser distinto, necesitamos averiguarlo en el código.
+```js
+var fuego = document.getElementById('fuego');
+var alturaMaximaGraficoLlama = fuego.height;
+```
+
+Ahora solo nos queda modificar la altura del fuego en la función update:
+```js
+update:     function () {
+              this.longitudLlama = formulaByram(biomasa[this.combustible], this.velocidad);
+              fuego.height = this.longitudLlama / 25 * maxAlturaFuego;
+            }
+```
+
+Hemos conseguido un tamaño de la llama interactivo, pero no es muy satisfactorio. Para hacer que las llamas crezcan hacia arriba, vamos a introducir un margen variable:
+```js
+update:     function () {
+              this.longitudLlama = formulaByram(biomasa[this.combustible], this.velocidad);
+              fuego.height = this.longitudLlama / 25 * maxAlturaFuego;
+              fuego.marginTop = maxAlturaFuego - fuego.height + "px"; 
+            }
+```
