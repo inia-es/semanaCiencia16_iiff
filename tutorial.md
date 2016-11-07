@@ -291,16 +291,22 @@ Para que Bootstrap dé una mejor estructura a nuestro contenido debemos poner to
 </body>
 ```
 
+Algunas etiquetas para mejorar el aspecto de nuestra tabla de datos:
+```html
+<table class="table table-bordered table-striped">
+```
+
+Y un retoque (`label`, `labe-info`, `style`) para mejorar el aspecto de nuestros resultados:
+```html
+<span data-format="%.2f" data-var="longitudLlama" class="label label-info" style="font-size: 1.6em;"> m</span>.
+
+```
+
 Para terminar la mejora añadimos la clase `center-block` a las imágenes con las fórmulas:
 ```html
 <img alt="" src="img/eqIntensidad.gif" class="center-block"><br/>
 <img alt="" src="img/eqLongitud.gif" class="center-block"><br/>
 <img alt="Fórmula de Byram" src="img/eqByram.gif" class="center-block">
-```
-
-Y algunas etiquetas para mejorar el aspecto de nuestra tabla de datos:
-```html
-<table class="table table-bordered table-striped">
 ```
 
 Pocos dan tanto con tan poco esfuero.
