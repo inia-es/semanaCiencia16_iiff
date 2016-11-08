@@ -342,7 +342,7 @@ Ahora solo nos queda introducirlo en la fórmula de Byram:
 
 **¡¡Enhorabuena!!**, habéis construido vuestra primera Explicación Explorable.
 
-# Explicaciones visualesclas
+# Explicaciones visuales
 
 Ahora vamos a añadir un elemento visual para mejorar la explicación.
 
