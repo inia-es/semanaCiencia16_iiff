@@ -426,6 +426,52 @@ Hemos conseguido un tamaño de la llama interactivo, pero no es muy satisfactori
 update:     function () {
               this.longitudLlama = formulaByram(biomasa[this.combustible], this.velocidad);
               fuego.height = this.longitudLlama / 25 * maxAlturaFuego;
-              fuego.marginTop = maxAlturaFuego - fuego.height + "px"; 
+              fuego.marginTop = maxAlturaFuego - fuego.height + "px";
             }
 ```
+
+Para modificar la imagen de la recomendación, usaremos una estrategia parecida a la que hemos usado para modificar la llama, pero en lugar de modificar la propiedad `height` mdificaremos la propiedad `src`:
+
+```html
+<div class="col-md-4">
+  <h2>Recomendación</h2>
+  <img src="img/aereo.gif" id="estrategia">
+  <br/>
+  <span data-var="estrategia" style="text-transform:capitalize;"></span>
+</div>
+```
+
+Y en Javascript creamos una función que seleccione la imagen para los distintos valores de longitud de la llama, y la aplicamos en nuestro update:
+```js
+function recomiendaEstrategia(longitud) {
+  if (longitud < 0.000001) {
+    return "";
+  }
+  else if (longitud < 1.5) {
+    return 'batefuegos';
+  }
+  else if (longitud < 2.5) {
+    return 'autobomba';
+  }
+  else if (longitud < 4) {
+    return 'aereo';
+  }
+  else {
+    return 'contrafuego';
+  }
+}
+
+var estrategia = document.getElementById('estrategia');
+```
+
+```js
+update:     function () {
+              this.longitudLlama = formulaByram(biomasa[this.combustible], this.velocidad);
+              fuego.height = this.longitudLlama / 25 * maxAlturaFuego;
+              fuego.style.marginTop = maxAlturaFuego - fuego.height + "px";
+              this.estrategia = recomiendaEstrategia(this.longitudLlama);
+              estrategia.src = 'img/' + this.estrategia + ".gif";
+              estrategia.alt = this.estrategia;
+              estrategia.title = this.estrategia;
+            },
+```    
