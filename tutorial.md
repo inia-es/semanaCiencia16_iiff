@@ -342,31 +342,6 @@ Ahora solo nos queda introducirlo en la fórmula de Byram:
 
 **¡¡Enhorabuena!!**, habéis construido vuestra primera Explicación Explorable.
 
-# Buenas prácticas
-Vamos a evitar replicar los valores de biomasa en el código y en el HTML. Para ello tomaremos los valores de la tabla como origen de datos, y los utilizaremos en Javascript.
-
-En primer lugar anotaremos los valores de la tabla con microdatos. Los microdatos describen más precisamente la información de una web, y permiten que sea explorada por buscadores con más información o utilizada por aplicaciones de terceros.
-
-Usar microdatos es muy sencillo:
-```html
-<td itemscope itemtype="http://schema.org/Mass" id="biomasa_pasto">0.1 kg</td>
-```
-
-Para acceder a los valores usaremos la función `document.getElementById()` que nos devuelve un elemento HTML. Para acceder a su contenido usamos su propiedad `innerHTML`. Por último creamos una función que elimina la unidad de kg y nos devuelve un valor numérico.
-
-```js
-function valorMasa(texto) {
-  return parseFloat(texto.slice(0,-3));
-}
-
-var biomasa = [
-  null, // valor nulo para evitar el error por 1
-  valorMasa(document.getElementById('biomasa_pasto').innerHTML), // pastos
-  valorMasa(document.getElementById('biomasa_matorral_bajo').innerHTML), // matorral bajo
-  valorMasa(document.getElementById('biomasa_matorral alto').innerHTML), // matorral alto
-];
-```
-
 # Explicaciones visualesclas
 
 Ahora vamos a añadir un elemento visual para mejorar la explicación.
@@ -475,3 +450,29 @@ update:     function () {
               estrategia.title = this.estrategia;
             },
 ```    
+# Buenas prácticas
+Una vez que hemos llegado hasta aquí tenemos una aplicación interactiva que hemos intentado hacer atractiva para el público en general. Terminamos el tutorial con una pequeña mejora que no tiene repercusión funcional ni estética, pero mejora el diseño de la aplicación.
+
+Vamos a evitar replicar los valores de biomasa en el código y en el HTML. Para ello tomaremos los valores de la tabla como origen de datos, y los utilizaremos en Javascript.
+
+En primer lugar anotaremos los valores de la tabla con microdatos. Los microdatos describen más precisamente la información de una web, y permiten que sea explorada por buscadores con más información o utilizada por aplicaciones de terceros.
+
+Usar microdatos es muy sencillo:
+```html
+<td itemscope itemtype="http://schema.org/Mass" id="biomasa_pasto">0.1 kg</td>
+```
+
+Para acceder a los valores usaremos la función `document.getElementById()` que nos devuelve un elemento HTML. Para acceder a su contenido usamos su propiedad `innerHTML`. Por último creamos una función que elimina la unidad de kg y nos devuelve un valor numérico.
+
+```js
+function valorMasa(texto) {
+  return parseFloat(texto.slice(0,-3));
+}
+
+var biomasa = [
+  null, // valor nulo para evitar el error por 1
+  valorMasa(document.getElementById('biomasa_pasto').innerHTML), // pastos
+  valorMasa(document.getElementById('biomasa_matorral_bajo').innerHTML), // matorral bajo
+  valorMasa(document.getElementById('biomasa_matorral alto').innerHTML), // matorral alto
+];
+```
